@@ -22,3 +22,21 @@ Object.freeze(person);
 const details = {...person};
 
 console.log(details);
+
+
+// for ... im
+
+for(const key in details){
+   // console.log(`${key} : ${details.key}`); It doesn't work 
+
+   console.log(`${key} : ${details[key]}`);  
+}
+
+console.log(`\n`);
+
+//for of loop in an object
+
+for (let [key, value] of Object.entries(person)) {
+    console.log(`key: ${key}, value: ${value}`);
+    
+}
