@@ -40,3 +40,34 @@ for (let [key, value] of Object.entries(person)) {
     console.log(`key: ${key}, value: ${value}`);
     
 }
+
+//Optional chaining
+const myself ={
+    name:{
+        firstName: "Kamrul",
+        middelName: "Hasan",
+        lastName: "Jaman"
+    },
+    age: 22,
+    booldGroup: "B+",
+    email:{
+        universityMail:"251-50-004@diu.edu.bd",
+        practiceMail:"kamrul.coder01@gmail",
+        professonalMail: "kamrulhasanjaman5@gamil.com",
+    },
+    address:{
+        presentAdress:{
+            area:"Mirpur 2",
+            city: "Dhaka",
+            division:"Dhaka",
+            country:"Bangladesh"
+        }
+    }
+}
+
+const area = myself?.address?.presentAdress?.area || "Your living area are not founding";
+
+console.log(area);
+
+const name = myself?.["name"]?.["firstName"];
+console.log(name);
