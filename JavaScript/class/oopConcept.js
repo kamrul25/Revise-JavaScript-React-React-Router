@@ -2,37 +2,37 @@
 // Encapsulation, private & public
 // ----------------------
 
-class BankAccount{
+class BankAccount {
     #balance; // private propert (encapsulation)
     accountHolder; //public property
     static bankName = "Kamrul Bank"; // Static propert (Shared across all instance)
 
-    constructor(accountHolder, initialBalance){
+    constructor(accountHolder, initialBalance) {
         this.accountHolder = accountHolder;
         this.#balance = initialBalance;
     }
 
     //Public method to access private balance
-    getBalance(){
+    getBalance() {
         return this.#balance;
     }
-    
-    deposit(amount){
+
+    deposit(amount) {
         if (amount > 0) {
             this.#balance += amount;
             console.log(`${this.accountHolder} deposited $${amount}`);
         }
     }
 
-    withdraw(amount){
+    withdraw(amount) {
         if (amount <= this.#balance) {
             console.log(`${this.accountHolder} withdraw $${amount}`);
-        }else{
+        } else {
             console.log(`Insufficient funds for ${this.accountHolder}.`);
         }
     }
 
-    static getBankName(){
+    static getBankName() {
         return BankAccount.bankName;
     }
 }
@@ -48,15 +48,15 @@ console.log(BankAccount.getBankName()); // Kamrul Bank
 -- Inheritance
 --------------------------*/
 
-class SavingsAccount extends BankAccount{
+class SavingsAccount extends BankAccount {
     #interestRate; //private property
 
-    constructor(accountHolder, initialBalance, interestRate){
-        super(accountHolder, initialBalance) ; // inherit parent constructor
+    constructor(accountHolder, initialBalance, interestRate) {
+        super(accountHolder, initialBalance); // inherit parent constructor
         this.#interestRate = interestRate;
     }
 
-    addInterest(){
+    addInterest() {
         const interest = this.getBalance() * this.#interestRate / 100;
         this.deposit(interest);
         console.log(`Inerest added: $${interest}`);
@@ -66,3 +66,22 @@ class SavingsAccount extends BankAccount{
 // Example of inheritance instance
 const hasan = new SavingsAccount("Hasan", 1000, 5);
 hasan.addInterest(); // Adds 5% interest 
+
+/* **************
+**********Polumorphism************
+***************************** */
+
+class LoanAccount extends BankAccount {
+    constructor(accountHolder, initialBalance, interestRate) {
+        super(accountHolder, initialBalance);
+        this.interestRate = interestRate;
+    }
+
+    // Overriding withdraw method
+    withdraw(amount) {
+        console.log(`Loans cannot be withdrawn directly!`);
+    }
+}
+// Example polymorphism
+const loanAcc = new LoanAccount("Alice", 2000, 10);
+loanAcc.withdraw(100); // Polymorphism: same method name, different behavior
