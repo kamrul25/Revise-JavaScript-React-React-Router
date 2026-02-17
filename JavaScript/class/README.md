@@ -63,16 +63,24 @@ Many modern projects prefer functional patterns instead.
 # 🧠 Why Companies Still Care About Classes
 ### Companies use them because they provide:
     -Encapsulation: Keeping data and logic together.
+
     -Reusability: Sharing code through inheritance.
+
     -Clear Structure: Making large codebases easier to navigate.
+
     -Easier Scaling: Standardizing how objects are created.
+    
     -Familiarity: Easier for developers from Java/C# backgrounds to jump in.
 
 # When I should learn classes
 
-Prioritize learning them if you:
+### Prioritize learning them if you:
    - Want to become a professional JS developer.
+
     -Plan to use TypeScript.
+
     -Work in Backend development.
+
     -Are joining larger teams.
+
     -Want to master Object-Oriented Programming (OOP).
