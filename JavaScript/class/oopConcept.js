@@ -43,3 +43,26 @@ console.log(john.getBalance()); // 500
 john.deposit(200);
 console.log(john.getBalance()); // 700
 console.log(BankAccount.getBankName()); // Kamrul Bank
+
+/* -----------------------
+-- Inheritance
+--------------------------*/
+
+class SavingsAccount extends BankAccount{
+    #interestRate; //private property
+
+    constructor(accountHolder, initialBalance, interestRate){
+        super(accountHolder, initialBalance) ; // inherit parent constructor
+        this.#interestRate = interestRate;
+    }
+
+    addInterest(){
+        const interest = this.getBalance() * this.#interestRate / 100;
+        this.deposit(interest);
+        console.log(`Inerest added: $${interest}`);
+    }
+}
+
+// Example of inheritance instance
+const hasan = new SavingsAccount("Hasan", 1000, 5);
+hasan.addInterest(); // Adds 5% interest 
