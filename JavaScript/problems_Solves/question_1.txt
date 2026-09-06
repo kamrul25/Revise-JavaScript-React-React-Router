@@ -1,0 +1,41 @@
+Problem 1: Module Setup (export and import)
+Task: Create two files: storeData.js and main.js.
+
+In storeData.js, create an array of objects representing an inventory of store items (each item should have properties like id, name, price, inStock (boolean), tags (array of strings), and optionally a nested details object with rating). Export this array.
+
+In main.js, import the array so you can use it in the remaining problems.
+
+Problem 2: Safe Extraction (Destructuring, Optional Chaining, and Nullish Coalescing)
+Task: Write a function that takes a single product object as an argument.
+
+Use object destructuring to extract name and price.
+
+Use optional chaining (?.) to safely access a nested rating property inside details (which might be missing on some items) and use nullish coalescing (??) to provide a default fallback value of "No rating" if it's null or undefined.
+
+Use array destructuring to extract the first two tags from the product's tags array.
+
+Problem 3: Flexible Arguments (Rest Operator)
+Task: Write a function called summarizeCart that uses the Rest operator (...) to accept an arbitrary number of item prices.
+
+The function should calculate and return the total sum of all prices passed into it.
+
+Problem 4: Filtering and Transforming (filter() and map())
+Task: Using your imported product dataset:
+
+Use filter() to create a new array containing only the products that are currently in stock (inStock: true) and priced above a certain threshold.
+
+Take that filtered array and use map() to transform it into a new array of strings formatted like this: "Item: [Name] - $[Price]".
+
+Problem 5: Searching and Validating (find(), includes(), some(), and every())
+Task: Perform the following checks on your dataset:
+
+Use find() to locate the first product whose id matches a specific target ID.
+
+Use includes() to check if a specific product's tags array contains the keyword "electronics".
+
+Use some() to check if any product in the entire inventory is out of stock (inStock: false).
+
+Use every() to check if all products in the inventory have a price greater than 0.
+
+Problem 6: Side Effects (forEach())
+Task: Take your final processed list of product names/strings from Problem 4 and use forEach() to log each item to the console with a custom greeting message (e.g., "Featured product: [string]").
